@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Teacher Login{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5" style="max-width: 400px;">
+    <h3 class="mb-4 text-center">Teacher Login</h3>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="id_username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="id_username" name="username" required
+                autocomplete="new-username">
+        </div>
+
+        <div class="mb-3">
+            <label for="id_password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="id_password" name="password" required
+                autocomplete="new-password">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+</div>
+{% endblock %}

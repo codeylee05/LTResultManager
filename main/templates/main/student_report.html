@@ -1,0 +1,70 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Student Report Term 2{% endblock %}
+
+{% block content %}
+<!-- Wrap everything in a horizontal flex container -->
+<div style="display: flex; justify-content: space-between; align-items: flex-start; margin: 30px 40px;">
+
+    <!-- Left: Student details + buttons -->
+    <div style="display: flex;">
+
+        <!-- Profile + student info -->
+        {% if student.profile_pic %}
+        <img src="{{ student.profile_pic.url }}" alt="Profile Picture"
+            style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin-right: 30px;">
+        {% else %}
+        <div
+            style="width: 150px; height: 150px; background: #ddd; border-radius: 10px; margin-right: 30px; display: flex; align-items: center; justify-content: center;">
+            <span>No Photo</span>
+        </div>
+        {% endif %}
+
+        <div>
+            <h2>{{ student.first_name }} {{ student.surname }}</h2>
+            <p><strong>Grade:</strong> {{ student.grade }}</p>
+            <p><strong>Date of Birth:</strong> {{ student.dob }}</p>
+            <p><strong>Class Teacher:</strong> {{ student.class_teacher.name }}</p>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                <button class="btn btn-outline-primary" disabled>Previous Results</button>
+                <button class="btn btn-outline-primary" disabled>Previous Reports</button>
+                <button class="btn btn-outline-success" disabled>Term 2 Results</button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Right: "Term 2 Report" heading -->
+    <div>
+        <h2 style="padding-right: 270px; padding-top: 0;">Term 2 Report</h2>
+        {% if term2_report %}
+        <!--<a href="{{ term2_report.report_file.url }}" class="btn btn-outline-success" target="_blank">
+            📄 View Term 2 Report
+        </a>-->
+
+        <div class="card" style="width: 20rem; margin-left: -55px; margin-top: 20px;">
+            <img src="{% static 'main/images/2021LogoSHIP1 (1).png' %}" class="card-img-top" alt="..." height="240px">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">{{ student.first_name }} {{ student.surname }}</h5>
+                <p class="card-text">Dear Parent/Guardian, Find attached below your child's Term 2 Report for the
+                    Academic Year 2025</p>
+                <a href="{{ term2_report.report_file.url }}" class="btn btn-primary" target="_blank"
+                    style="margin-left: 53px;">📄 See Term 2
+                    Report</a>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="alert alert-primary" role="alert"
+            style="margin-left: -220px; margin-top: 20px; text-align: center;">
+            No Term 2 Report available yet for this student.
+        </div>
+        {% endif %}
+    </div>
+
+
+
+
+</div>
+{% endblock %}

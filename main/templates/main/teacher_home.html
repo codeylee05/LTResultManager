@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Teacher Home{% endblock %}
+
+{% block content %}
+
+<div style="margin-top: 80px; text-align: center;">
+    <h2>Welcome, {{ request.user.username }}</h2>
+    <p>Select your class students below or view all students above</p>
+
+    {% if students %}
+    <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <table style="border-collapse: collapse; width: 80%; max-width: 900px;" cellpadding="12" cellspacing="0">
+            <thead>
+                <tr style="border: 1px solid #444; background-color: #333; color: white;">
+                    <th style="border: 1px solid #444;">#</th>
+                    <th style="border: 1px solid #444;">First Name</th>
+                    <th style="border: 1px solid #444;">Surname</th>
+                    <th style="border: 1px solid #444;">Grade</th>
+                    <th style="border: 1px solid #444;">View</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td style="border: 1px solid #444;">{{ forloop.counter }}</td>
+                    <td style="border: 1px solid #444;">{{ student.first_name }}</td>
+                    <td style="border: 1px solid #444;">{{ student.surname }}</td>
+                    <td style="border: 1px solid #444;">{{ student.grade }}</td>
+                    <td style="border: 1px solid #444; text-align: center;">
+                        <a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary"
+                            style="min-width: 100px; text-align: center; ">
+                            View
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>You don’t have any students assigned to your class.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
