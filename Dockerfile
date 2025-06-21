@@ -31,4 +31,4 @@ RUN mkdir -p /app/media
 EXPOSE 8000
 
 # Start the app with Gunicorn
-CMD ["sh", "-c", "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate --noinput && python manage.py create_admin && gunicorn LTResultManager.wsgi"]
