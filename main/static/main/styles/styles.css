@@ -44,7 +44,7 @@
     gap: 15px;
 }
 
-.btn {
+.landing-page-btn {
     padding: 14px 20px;
     font-size: 1rem;
     text-align: center;
@@ -54,16 +54,16 @@
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.btn:hover {
+.landing-page-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.btn.blue {
+.landing-page-btn.blue {
     background-color: #007BFF;
 }
 
-.btn.green {
+.landing-page-btn.green {
     background-color: #28A745;
 }
 
@@ -145,7 +145,7 @@
         font-size: 1.3rem;
     }
 
-    .btn {
+    .landing-page-btn {
         font-size: 1rem;
         padding: 12px;
         width: 80%
