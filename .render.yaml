@@ -1,13 +1,12 @@
 services:
   - type: web
     name: LTresultmanager
-    env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn LTResultManager.wsgi"
-    pythonVersion: 3.11.9
+    env: docker
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: DEBUG
         value: False
       - key: SECRET_KEY
         generateValue: true
-    staticPublishPath: staticfiles
+      - key: DJANGO_SETTINGS_MODULE
+        value: LTResultManager.settings
