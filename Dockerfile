@@ -25,8 +25,10 @@ RUN pip install -r requirements.txt
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
+RUN mkdir -p /app/media
+
 # Expose port (default for gunicorn)
 EXPOSE 8000
 
 # Start the app with Gunicorn
-CMD ["sh", "-c", "python manage.py migrate --noinput && gunicorn LTResultManager.wsgi:application --bind 0.0.0.0:8000 --workers 3"]
+CMD ["sh", "-c", "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"]
