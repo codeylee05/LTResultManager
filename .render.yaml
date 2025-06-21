@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: LTresultmanager
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn LTResultManager.wsgi"
+    envVars:
+      - key: DEBUG
+        value: False
+      - key: SECRET_KEY
+        generateValue: true
+    staticPublishPath: staticfiles
