@@ -103,3 +103,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 SECRET_KEY = config('SECRET_KEY', default='dev-secret-key-change-in-prod')
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://ltresultmanager.onrender.com',
+]
+
+if not DEBUG:
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
