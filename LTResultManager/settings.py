@@ -12,7 +12,7 @@ SECRET_KEY = 'django-insecure-@on6jimn!!dn+k0b*@zd7*!*sg&@44oefojaf6fr1lesecv3q6
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['your-project-name.onrender.com']
+ALLOWED_HOSTS = ['ltresultmanager.onrender.com']
 
 
 INSTALLED_APPS = [
