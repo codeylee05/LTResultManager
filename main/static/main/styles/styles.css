@@ -120,3 +120,43 @@
         transform: translateY(0px);
     }
 }
+
+@media (max-width: 768px) {
+    .landing-container {
+        flex-direction: column;
+    }
+
+    .landing-left,
+    .landing-right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .landing-right {
+        display: none;
+        /* Hide right panel on mobile */
+    }
+
+    .logo h1 {
+        font-size: 2.3rem;
+    }
+
+    .logo p {
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 12px;
+        width: 80%
+    }
+
+    .landing-left img {
+        width: 90%;
+    }
+
+    .admin-link {
+        transform: translateX(-20px);
+        margin-top: 40px;
+    }
+}
