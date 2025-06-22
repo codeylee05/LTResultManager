@@ -3,21 +3,21 @@
 {% block title %}Student Report Term 2{% endblock %}
 
 {% block content %}
-<div style="display: flex; justify-content: space-between; align-items: flex-start; margin: 30px 40px;">
+<div class = "student-report-page" style="display: flex; justify-content: space-between;  margin: 30px 40px;">
 
-    <div style="display: flex;">
+    <div class = "student-report-profile">
 
         {% if student.profile_pic %}
         <img src="{{ student.profile_pic.url }}" alt="Profile Picture"
-            style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin-right: 30px;">
+            style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; ">
         {% else %}
-        <div
-            style="width: 150px; height: 150px; background: #ddd; border-radius: 10px; margin-right: 30px; display: flex; align-items: center; justify-content: center;">
+        <div class ="profile-photo"
+            style="width: 150px; height: 150px; background: #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
             <span>No Photo</span>
         </div>
         {% endif %}
 
-        <div>
+        <div class = "student-report-information">
             <h2>{{ student.first_name }} {{ student.surname }}</h2>
             <p><strong>Grade:</strong> {{ student.grade }}</p>
             <p><strong>Date of Birth:</strong> {{ student.dob }}</p>
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div>
+    <div class = "report-container">
         {% if term_report %}
         <div style="width: 100%;">
             <div class="report-wrapper">
@@ -151,7 +151,7 @@
 
         {% else %}
         <div class="alert alert-warning" role="alert"
-            style="margin-right: 200px; margin-top: 20px; text-align: center;">
+            style="   margin-top: 20px; text-align: center;">
             No Term 2 Report available yet for this student.
         </div>
         {% endif %}
