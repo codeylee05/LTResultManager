@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-@on6jimn!!dn+k0b*@zd7*!*sg&@44oefojaf6fr1lesecv3q6'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['ltresultmanager.onrender.com', '127.0.0.1', 'localhost']
 
@@ -57,15 +57,34 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'LTResultManager.wsgi.application'
 
+IS_PRODUCTION = os.getenv('RENDER') == 'true' or os.getenv(
+    'DATABASE_URL') is not None
 
-DATABASES = {
+if IS_PRODUCTION:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.getenv('DATABASE_URL'),
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
+
+'''DATABASES = {
     'default': dj_database_url.config(
         # Postgres URL from Render
         default=os.getenv('DATABASE_URL'),
         conn_max_age=600,
         ssl_require=True
     )
-}
+}'''
 
 
 AUTH_PASSWORD_VALIDATORS = [
