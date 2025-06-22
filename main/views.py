@@ -2,9 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Teacher, Student, Parent, Report
+from .models import Teacher, Student, Parent, TermReport
 from django.shortcuts import render, get_object_or_404
-from .forms import ReportUploadForm
 
 
 def index(request):
@@ -66,34 +65,20 @@ def student(request, student_id):
     return render(request, 'main/student.html', {'student': student})
 
 
-@login_required
-def student_report(request, student_id):
-
-    student = get_object_or_404(Student, id=student_id)
-
-    return render(request, 'main/student_report.html', {'student': student})
-
-
 def student_report(request, student_id):
 
     student = get_object_or_404(Student, pk=student_id)
-    report = student.reports.filter(term="Term 2").first()
-    form = ReportUploadForm()
 
-    if request.method == 'POST':
-        form = ReportUploadForm(request.POST, request.FILES)
-        if form.is_valid():
-            uploaded = form.save(commit=False)
-            uploaded.student = student
-            uploaded.term = "Term 2"
-            uploaded.save()
-            return redirect('student_report', student_id=student.id)
+    term_report = student.term_reports.order_by('-created_at').first()
+
+    subject_grades = term_report.subject_grades.all() if term_report else []
 
     context = {
         'student': student,
-        'form': form,
-        'term2_report': report
+        'term_report': term_report,
+        'subject_grades': subject_grades,
     }
+
     return render(request, 'main/student_report.html', context)
 
 

@@ -1,14 +1,39 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LTResultManager</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/styles/styles.css' %}">
 </head>
 
-<body>
+<body class="landing-body">
+    <div class="landing-container">
+        <div class="landing-left">
+            <div class="logo">
+                <h1>LT Result Manager</h1>
+                <h3>By LedtechT</h3>
+                <p>Track. Review. Improve.</p>
+            </div>
 
+            <div class="buttons">
+                <a href="{% url 'teacher_login' %}" class="landing-page-btn blue">Login as Teacher</a>
+                <a href="{% url 'parent_login' %}" class="landing-page-btn green">Login as Parent</a>
+                <a href="/admin" class="admin-link">Go to Admin Site</a>
+            </div>
+            <img src="{% static 'main/images/undraw_graduation_u7uc.svg' %}" alt="Graduation Image" class="footer-image"
+                height="200" width="100%" />
+        </div>
+
+        <div class="landing-right">
+
+        </div>
+    </div>
 </body>
 
 </html>

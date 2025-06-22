@@ -13,8 +13,8 @@ urlpatterns = [
          name="parent_logout"),
     path('students/<int:student_id>/',
          views.student, name='student'),
-    path("students/<int:student_id>/report/",
-         views.student_report, name="student_report"),
+    path('student/<int:student_id>/report/',
+         views.student_report, name='student_report'),
     path("parents/login/", views.parent_login, name="parent_login"),
     path("parents/home/", views.parent_home, name="parent_home"),
 
