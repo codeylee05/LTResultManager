@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: LTresultmanager
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: |
+      python manage.py migrate --noinput && gunicorn LTResultManager.wsgi
+    pythonVersion: 3.11.9
+    envVars:
+      - key: DEBUG
+        value: False
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: LTResultManagerDB
+          property: connectionString
+    staticPublishPath: staticfiles

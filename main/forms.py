@@ -1,17 +1,6 @@
 from django import forms
-from .models import Report, Parent
+from .models import Parent
 from django.contrib.auth.models import User
-
-
-'''class TeacherLoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)'''
-
-
-class ReportUploadForm(forms.ModelForm):
-    class Meta:
-        model = Report
-        fields = ['report_file']
 
 
 class ParentAdminForm(forms.ModelForm):
