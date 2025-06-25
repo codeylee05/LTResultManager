@@ -3,11 +3,10 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 GRADE_CHOICES = [
-    ('US', 'US'),
-    ('IGCSE_1', 'IGCSE 1'),
-    ('IGCSE_2', 'IGCSE 2'),
-    ('AS_1', 'AS Level 1'),
-    ('AS_2', 'AS Level 2'),
+    ('Grade 7', 'Grade 7'),
+    ('Grade 8', 'Grade 8'),
+    ('IGCSE', 'IGCSE'),
+    ('AS', 'AS'),
     ('GED', 'GED'),
 ]
 
