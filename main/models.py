@@ -63,7 +63,7 @@ class Parent(models.Model):
     children = models.ManyToManyField("Student", related_name='parents')
 
     def __str__(self):
-        return self.user.username
+        return self.user.username if self.user else "Orphaned Parent"
 
 
 class TermReport(models.Model):
