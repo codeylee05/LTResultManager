@@ -1,0 +1,317 @@
+.landing-body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.landing-container {
+    display: flex;
+    height: 100vh;
+}
+
+.logo h3 {
+    color: #8d0808
+}
+
+.landing-left,
+.landing-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+.landing-left {
+    background-color: #ffffff;
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    color: #333333 margin-bottom: 10px;
+}
+
+.logo p {
+    font-size: 1.2rem;
+    color: #6C757D;
+}
+
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.landing-page-btn {
+    padding: 14px 20px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.landing-page-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.landing-page-btn.blue {
+    background-color: #007BFF;
+}
+
+.landing-page-btn.green {
+    background-color: #28A745;
+}
+
+.admin-link {
+    margin-top: 20px;
+    text-decoration: underline;
+    color: #007BFF;
+    font-weight: bold;
+    text-align: center
+}
+
+
+.contact-btn {
+    font-size: 0.9rem;
+    color: #6C757D;
+    text-decoration: none;
+    border: 1px solid #6C757D;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    margin-left: 240px;
+    ;
+}
+
+.contact-btn:hover {
+    background-color: #6C757D;
+    color: #fff;
+}
+
+.landing-right {
+    background: linear-gradient(to bottom right, #e9f7ef, #e3f2fd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.illustration {
+    max-width: 90%;
+    max-height: 80%;
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Simple floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-container {
+        flex-direction: column;
+    }
+
+    .landing-left,
+    .landing-right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .landing-right {
+        display: none;
+        /* Hide right panel on mobile */
+    }
+
+    .logo h1 {
+        font-size: 2.3rem;
+    }
+
+    .logo p {
+        font-size: 1.3rem;
+    }
+
+    .landing-page-btn {
+        font-size: 1rem;
+        padding: 12px;
+        width: 80%
+    }
+
+    .landing-left img {
+        width: 90%;
+    }
+
+    .admin-link {
+        transform: translateX(-20px);
+        margin-top: 40px;
+    }
+}
+
+
+.report-card {
+    max-width: 100%;
+    margin: 10px 10px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    background: white;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+.report-card .report-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    line-height: 10px;
+    margin-bottom: 50px;
+}
+
+.year {
+    color: #555;
+}
+
+.student-info {
+    font-size: 1.1rem
+}
+
+.student-info p,
+.summary p,
+.comment p {
+    margin: 5px 0;
+}
+
+.report-table,
+.grading-scale {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+}
+
+.report-table th,
+.report-table td,
+.grading-scale th,
+.grading-scale td {
+    border: 1px solid #999;
+    padding: 8px;
+    font-size: 0.95rem;
+}
+
+.report-table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+.report-table td {
+    background-color: #f9f9f9;
+}
+
+.grading-scale th {
+    background-color: #28A745;
+    color: white;
+    font-size: 1rem;
+}
+
+.grading-scale td {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.summary {
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.comment {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    font-style: italic;
+}
+
+.signatures {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    gap: 20px;
+    text-align: center;
+}
+
+.signature-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signature-box .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sig-box {
+    width: 150px;
+    height: 60px;
+    border: 2px solid #000;
+    margin-bottom: 10px;
+}
+
+.signature-box .name {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.report-wrapper {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: adjust font sizes slightly to fit better */
+.report-wrapper h1,
+.report-wrapper h2,
+.report-wrapper h3 {
+    font-size: 90%;
+}
+
+.report-wrapper p,
+.report-wrapper td,
+.report-wrapper th {
+    font-size: 90%;
+}
+
+.report-logo {
+    text-align: center;
+}
+
+.report-logo-img {
+    height: 250px;
+    width: 85%
+}
+
+.report-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+}
+
+.to-pdf-btn {
+    text-align: center;
+}

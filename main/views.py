@@ -13,6 +13,7 @@ import os
 from django.contrib.staticfiles import finders
 from django.conf import settings
 from django.http import HttpResponseForbidden, Http404
+'''import logger'''
 
 
 def index(request):
@@ -144,10 +145,16 @@ def generate_report_pdf(request, student_id):
     term_report = student.term_reports.first()
     subject_grades = term_report.subject_grades.all()
 
-    logo_url = os.path.join(settings.STATIC_ROOT,
-                            'main/images/ship_report_header.jpg')
-    if not os.path.exists(logo_url):
-        logo_url = finders.find('main/images/ship_report_header.jpg')
+    logo_static_path = finders.find('main/images/ship_report_header.jpg')
+    if logo_static_path:
+
+        logo_absolute_path = os.path.abspath(logo_static_path).replace('\\', '/')
+        logo_url = 'file:///' + logo_absolute_path.lstrip('/')
+        '''logger.info(f"Resolved WeasyPrint logo path: {logo_url}")'''
+    else:
+
+        logo_url = None
+        '''logger.warning("Logo not found for WeasyPrint.")'''
 
     html_string = render_to_string("main/student_report_pdf.html", {
         "student": student,
