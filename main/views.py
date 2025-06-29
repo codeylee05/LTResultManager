@@ -144,9 +144,10 @@ def generate_report_pdf(request, student_id):
     term_report = student.term_reports.first()
     subject_grades = term_report.subject_grades.all()
 
-    logo_url = request.build_absolute_uri(
-        settings.STATIC_URL + "main/images/ship_report_header.jpg"
-    )
+    logo_url = os.path.join(settings.STATIC_ROOT,
+                            'main/images/ship_report_header.jpg')
+    if not os.path.exists(logo_url):
+        logo_url = finders.find('main/images/ship_report_header.jpg')
 
     html_string = render_to_string("main/student_report_pdf.html", {
         "student": student,
