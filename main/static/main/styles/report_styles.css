@@ -1,0 +1,147 @@
+.report-card {
+    width: 700px;
+    border: 1px solid #ccc;
+    background: white;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    padding: 20px;
+    transform: translateX(-60px);
+}
+
+.report-card .report-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    line-height: 10px;
+    margin-bottom: 50px;
+}
+
+.year {
+    color: #555;
+}
+
+.student-info {
+    font-size: 1.1rem
+}
+
+.student-info p,
+.summary p,
+.comment p {
+    margin: 5px 0;
+}
+
+.report-table,
+.grading-scale {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+}
+
+.report-table th,
+.report-table td,
+.grading-scale th,
+.grading-scale td {
+    border: 1px solid #999;
+    padding: 8px;
+    font-size: 0.95rem;
+}
+
+.report-table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+.report-table td {
+    background-color: #f9f9f9;
+}
+
+.grading-scale th {
+    background-color: #28A745;
+    color: white;
+    font-size: 1rem;
+}
+
+.grading-scale td {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.summary {
+    margin: 20px 0;
+    font-weight: bold;
+    margin-bottom: 110px;
+    font-size: 1.1rem;
+}
+
+.comment {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    font-style: italic;
+}
+
+.signatures {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    gap: 20px;
+    text-align: center;
+}
+
+.signature-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signature-box .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sig-box {
+    width: 150px;
+    height: 60px;
+    border: 2px solid #000;
+    margin-bottom: 10px;
+}
+
+.signature-box .name {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.report-wrapper {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: adjust font sizes slightly to fit better */
+.report-wrapper h1,
+.report-wrapper h2,
+.report-wrapper h3 {
+    font-size: 90%;
+}
+
+.report-wrapper p,
+.report-wrapper td,
+.report-wrapper th {
+    font-size: 90%;
+}
+
+.report-logo {
+    text-align: center;
+}
+
+.report-logo-img {
+    height: 240px;
+    width: 85%
+}
+
+.report-title {
+    font-size: 1.7rem;
+    color: #333;
+    margin: 0;
+}

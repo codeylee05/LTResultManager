@@ -147,7 +147,10 @@
                     </div>
                 </div>
             </div>
+
         </div>
+        <a href="{% url 'generate_report_pdf' student.id %}" class="to-pdf-btn btn btn-outline-danger">⬇️ Download
+            PDF</a>
 
         {% else %}
         <div class="alert alert-warning" role="alert"

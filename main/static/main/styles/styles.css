@@ -311,3 +311,7 @@
     color: #333;
     margin: 0;
 }
+
+.to-pdf-btn {
+    text-align: center;
+}
