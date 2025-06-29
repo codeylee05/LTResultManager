@@ -3,39 +3,54 @@
 {% block title %}All Students{% endblock %}
 
 {% block content %}
-<div style="margin-top: 20px; padding: 20px;">
+<div style="margin-top: 80px; text-align: center;">
 
-    {% for grade, students in grades.items %}
-    <h3 style="text-align: center; margin-top: 40px;">{{ grade }}</h3>
+  {% for grade, students in grades.items %}
+  <h3 class="text-center mt-5">Grade {{ grade }}</h3>
+  <div class="table-container">
+    <div class="table-responsive">
+      <table class="table student-table">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>DOB</th>
+            <th>View</th>
+          </tr>
+        </thead>
 
-    <div style="display: flex; justify-content: center;">
-        <table style="border-collapse: collapse; width: 90%; max-width: 1000px;" cellpadding="12" cellspacing="0">
-            <thead>
-                <tr style="border: 1px solid #444; background-color: #333; color: white;">
-                    <th style="border: 1px solid #444;">#</th>
-                    <th style="border: 1px solid #444;">First Name</th>
-                    <th style="border: 1px solid #444;">Surname</th>
-                    <th style="border: 1px solid #444;">DOB</th>
-                    <th style="border: 1px solid #444;">View</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for student in students %}
-                <tr style="background-color: {% cycle '#f9f9f9' '#e0e0e0' %};">
-                    <td style="border: 1px solid #444;">{{ forloop.counter }}</td>
-                    <td style="border: 1px solid #444;">{{ student.first_name }}</td>
-                    <td style="border: 1px solid #444;">{{ student.surname }}</td>
-                    <td style="border: 1px solid #444;">{{ student.dob }}</td>
-                    <td style="border: 1px solid #444; text-align: center;">
-                        <a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary"
-                            style="min-width: 80px;">View</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <tbody>
+          {% for student in students %}
+          <tr class="d-none d-md-table-row">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ student.first_name }}</td>
+            <td>{{ student.surname }}</td>
+            <td>{{ student.dob }}</td>
+            <td><a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="d-md-none">
+        {% for student in students %}
+        <div class="student-card mb-3 p-3">
+          <h5 class="student-name">{{ student.first_name }} {{ student.surname }}</h5>
+          <div><strong>DOB:</strong> {{ student.dob }}</div>
+          <div><strong>Student #:</strong> {{ forloop.counter }}</div>
+
+          <a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View More</a>
+
+        </div>
+        {% endfor %}
+      </div>
     </div>
-    {% endfor %}
+  </div>
+
+  {% endfor %}
+
+</div>
+
 
 </div>
 {% endblock %}
