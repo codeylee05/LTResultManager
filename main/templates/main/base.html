@@ -14,7 +14,7 @@
 
 <body>
     {% block nav %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% if request.user.teacher %}{% url 'teacher_home' %}
                   {% elif request.user.parent %}{% url 'parent_home' %}
@@ -23,8 +23,8 @@
                 LTResultManager
             </a>
 
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% comment %} <div class="navbar-links"> {% endcomment %}
+                <ul class="navbar-nav ">
                     {% if request.user.teacher %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'all_students' %}">All Students</a>
@@ -43,7 +43,7 @@
                     <button type="submit" class="btn btn-outline-danger">Logout</button>
                 </form>
                 {% endif %}
-            </div>
+            {% comment %} </div> {% endcomment %}
         </div>
     </nav>
 

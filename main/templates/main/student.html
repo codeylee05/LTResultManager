@@ -3,25 +3,26 @@
 {% block title %}Student{% endblock %}
 
 {% block content %}
-<div class = "student-report" style="display: flex; align-items: flex-start; margin: 30px 40px;">
+<div class = "student-report-page" style="display: flex;  margin: 30px 40px;">
+     <div class = "student-report-profile">
     {% if student.profile_pic %}
     <img src="{{ student.profile_pic.url }}" alt="Profile Picture"
         style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin-right: 30px;">
     {% else %}
-    <div
-        style="width: 150px; height: 150px; background: #ddd; border-radius: 10px; margin-right: 30px; display: flex; align-items: center; justify-content: center;">
+    <div class ="profile-photo"
+        style="width: 150px; height: 150px; background: #ddd; border-radius: 10px;  display: flex; align-items: center; justify-content: center;">
         <span>No Photo</span>
     </div>
     {% endif %}
 
-    <div>
+    <div class = "student-report-information">
         <h2>{{ student.first_name }} {{ student.surname }}</h2>
         <p><strong>Grade:</strong> {{ student.grade }}</p>
         <p><strong>Date of Birth:</strong> {{ student.dob }}</p>
         <p><strong>Class Teacher:</strong> {{ student.class_teacher.name }}</p>
     </div>
-
-    <div style="display: flex; flex-direction: column; gap: 10px; margin-left: 50px;">
+    
+    <div class ="report-buttons" style="display: flex; flex-direction: column; gap: 10px; ">
         <button class="btn btn-outline-primary" disabled>Previous Results</button>
         <button class="btn btn-outline-primary" disabled>Previous Reports</button>
         <button class="btn btn-outline-success" disabled>Term 2 Results</button>
