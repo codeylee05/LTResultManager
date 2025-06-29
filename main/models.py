@@ -3,11 +3,10 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 GRADE_CHOICES = [
-    ('US', 'US'),
-    ('IGCSE_1', 'IGCSE 1'),
-    ('IGCSE_2', 'IGCSE 2'),
-    ('AS_1', 'AS Level 1'),
-    ('AS_2', 'AS Level 2'),
+    ('Grade 7', 'Grade 7'),
+    ('Grade 8', 'Grade 8'),
+    ('IGCSE', 'IGCSE'),
+    ('AS', 'AS'),
     ('GED', 'GED'),
 ]
 
@@ -64,7 +63,7 @@ class Parent(models.Model):
     children = models.ManyToManyField("Student", related_name='parents')
 
     def __str__(self):
-        return self.user.username
+        return self.user.username if self.user else "Orphaned Parent"
 
 
 class TermReport(models.Model):

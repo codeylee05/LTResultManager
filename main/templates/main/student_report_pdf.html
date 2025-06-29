@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Report PDF</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+    </style>
+    <!--Tracking with Plausible-->
+    <script defer data-domain="ltresultmanager.onrender.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+
+<body>
+    <div class="report-wrapper">
+        <div class="report-card">
+            <div class="report-logo">
+                <img src="{{ logo_url }}" alt="School Logo" class="report-logo-img" style="width: 85%; height: 240px;">
+            </div>
+            <div class=" report-title" style="font-size: 1.5rem;
+    color: #2c3e50;
+    line-height: 10px;
+    margin-bottom: 50px;">
+                <h2>Term 2 Report Card</h2>
+                <p class="year">Academic Year: 2025</p>
+            </div>
+
+            <div class="student-info">
+                <p><strong>Student Name:</strong> {{ student.first_name }} {{ student.surname }}</p>
+                <p><strong>Class:</strong> {{ student.grade }}</p>
+                <p><strong>Days Absent:</strong> {{ term_report.days_absent }}</p>
+                <p><strong>School Reopens:</strong> 22/07/2025</p>
+            </div>
+
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Total Marks</th>
+                        <th>Marks Obtained</th>
+                        <th>Grade</th>
+                        <th>Remarks</th>
+                        <th>Class Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for grade in subject_grades %}
+                    <tr>
+                        <td>{{ grade.subject.name }}</td>
+                        <td>{{ grade.total_marks }}</td>
+                        <td>{{ grade.marks_obtained }}</td>
+                        <td>{{ grade.grade }}</td>
+                        <td>{{ grade.remarks }}</td>
+                        <td>{{ grade.class_average }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- Replace the summary block with dynamic values -->
+            <div class="summary">
+                <p><strong>Total Marks Obtained:</strong> {{ term_report.total_marks_obtained }}</p>
+                <p><strong>Final Percentage:</strong> {{ term_report.final_percentage }}%</p>
+                <p><strong>Overall Grade:</strong> {{ term_report.overall_grade }}</p>
+            </div>
+
+            <table class="grading-scale">
+                <thead>
+                    <tr>
+                        <th colspan="2">Grading Scale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0 – 39</td>
+                        <td>U (Ungraded)</td>
+                    </tr>
+                    <tr>
+                        <td>40 – 49</td>
+                        <td>E</td>
+                    </tr>
+                    <tr>
+                        <td>50 – 59</td>
+                        <td>D</td>
+                    </tr>
+                    <tr>
+                        <td>60 – 69</td>
+                        <td>C</td>
+                    </tr>
+                    <tr>
+                        <td>70 – 79</td>
+                        <td>B</td>
+                    </tr>
+                    <tr>
+                        <td>80 – 89</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>90 – 100</td>
+                        <td>A+</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Replace the static comment block -->
+            <div class="comment">
+                <p><strong>Comment:</strong> {{ term_report.comment }}</p>
+            </div>
+
+            <div class="signatures">
+                <div class="signature-box">
+                    <p class="title">Class Teacher</p>
+                    <div class="sig-box"></div>
+                    <p class="name">{{ student.class_teacher.name }}</p>
+                </div>
+                <div class="signature-box">
+                    <p class="title">Head of School</p>
+                    <div class="sig-box"></div>
+                    <p class="name">Mr Michael</p>
+                </div>
+                <div class="signature-box">
+                    <p class="title">Academic Head</p>
+                    <div class="sig-box"></div>
+                    <p class="name">Ms Sharon</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
