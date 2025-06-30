@@ -23,11 +23,14 @@
         <tbody>
           {% for student in students %}
           <tr class="d-none d-md-table-row">
+          <tr class="all-students-table d-none d-md-table-row">
             <td>{{ forloop.counter }}</td>
             <td>{{ student.first_name }}</td>
             <td>{{ student.surname }}</td>
             <td>{{ student.dob }}</td>
             <td><a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View</a></td>
+            <td><a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View</a>
+            </td>
           </tr>
           {% endfor %}
         </tbody>
