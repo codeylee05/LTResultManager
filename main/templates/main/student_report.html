@@ -5,19 +5,19 @@
 {% block content %}
 <div class="student-report-page d-flex flex-wrap flex-md-nowrap justify-content-around ">
 
-    <div class = "student-report-profile">
+    <div class="student-report-profile">
 
         {% if student.profile_pic %}
         <img src="{{ student.profile_pic.url }}" alt="Profile Picture"
             style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; ">
         {% else %}
-        <div class ="profile-photo"
+        <div class="profile-photo"
             style="width: 150px; height: 150px; background: #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
             <span>No Photo</span>
         </div>
         {% endif %}
 
-        <div class = "student-report-information">
+        <div class="student-report-information">
             <h2>{{ student.first_name }} {{ student.surname }}</h2>
             <p><strong>Grade:</strong> {{ student.grade }}</p>
             <p><strong>Date of Birth:</strong> {{ student.dob }}</p>
@@ -32,14 +32,14 @@
         </div>
     </div>
 
-    <div class = "report-container">
+    <div class="report-container">
         {% if term_report %}
         <div style="width: 100%;">
-            <div class="report-wrapper"style:"width: 100%;">
+            <div class="report-wrapper" style:"width: 100%;">
                 <div class="report-card">
                     <div class="report-logo mb-3 text-center">
-                    <img src="{% static 'main/images/ship_report_header.jpg' %}" alt="School Logo"
-                         class="img-fluid" style="max-height: 25vh; object-fit: contain;">
+                        <img src="{% static 'main/images/ship_report_header.jpg' %}" alt="School Logo" class="img-fluid"
+                            style="max-height: 25vh; object-fit: contain;">
                     </div>
                     <div class="report-title">
                         <h2>Term 2 Report Card</h2>
@@ -128,31 +128,30 @@
                         <p><strong>Comment:</strong> {{ term_report.comment }}</p>
                     </div>
 
-                      <!-- Signatures -->
-                <div class="signatures d-flex flex-wrap justify-content-between">
-                    <div class="signature-box text-center mb-3 flex-fill">
-                        <p class="title">Class Teacher</p>
-                        <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
-                        <p class="name">{{ student.class_teacher.name }}</p>
-                    </div>
-                    <div class="signature-box text-center mb-3 flex-fill">
-                        <p class="title">Head of School</p>
-                        <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
-                        <p class="name">Mr Michael</p>
-                    </div>
-                    <div class="signature-box text-center mb-3 flex-fill">
-                        <p class="title">Academic Head</p>
-                        <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
-                        <p class="name">Ms Sharon</p>
+                    <!-- Signatures -->
+                    <div class="signatures d-flex flex-wrap justify-content-between">
+                        <div class="signature-box text-center mb-3 flex-fill">
+                            <p class="title">Class Teacher</p>
+                            <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
+                            <p class="name">{{ student.class_teacher.name }}</p>
+                        </div>
+                        <div class="signature-box text-center mb-3 flex-fill">
+                            <p class="title">Head of School</p>
+                            <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
+                            <p class="name">Mr Michael</p>
+                        </div>
+                        <div class="signature-box text-center mb-3 flex-fill">
+                            <p class="title">Academic Head</p>
+                            <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
+                            <p class="name">Ms Sharon</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
         {% else %}
-        <div class="alert alert-warning" role="alert"
-            style="   margin-top: 20px; text-align: center;">
+        <div class="alert alert-warning" role="alert" style="   margin-top: 20px; text-align: center;">
             No Term 2 Report available yet for this student.
         </div>
         {% endif %}

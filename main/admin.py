@@ -12,6 +12,19 @@ class StudentInline(admin.TabularInline):
     show_change_link = True
 
 
+class ParentInline(admin.TabularInline):
+    model = Parent.children.through
+    extra = 0
+    can_delete = False
+    verbose_name = "Parent"
+    verbose_name_plural = "Parents"
+    readonly_fields = ("parent_username",)
+
+    def parent_username(self, instance):
+        return instance.parent.user.username
+    parent_username.short_description = "Parent Username"
+
+
 class TermReportInline(admin.TabularInline):
     model = TermReport
     extra = 0
@@ -45,7 +58,7 @@ class StudentAdmin(admin.ModelAdmin):
     list_filter = ('grade', 'class_teacher')
     search_fields = ('first_name', 'surname')
     filter_horizontal = ('subjects',)
-    inlines = [TermReportInline]
+    inlines = [TermReportInline, ParentInline]
 
 
 @admin.register(Parent)
