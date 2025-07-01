@@ -223,6 +223,7 @@
         justify-content: center;
     }
 
+
     .text-end {
         text-align: center;
     }
@@ -540,6 +541,6 @@
     text-align: center;
 }
 
-.all-students-table a {
+tbody a {
     width: 100px;
 }
