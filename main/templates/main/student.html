@@ -1,3 +1,4 @@
+
 {% extends "main/base.html" %}
 {% load static %}
 {% block title %}Student{% endblock %}
@@ -26,13 +27,7 @@
         <button class="btn btn-outline-primary" disabled>Previous Results</button>
         <button class="btn btn-outline-primary" disabled>Previous Reports</button>
         <button class="btn btn-outline-success" disabled>Term 2 Results</button>
-        <a class="btn btn-outline-success desk-btn d-none d-md-inline-block"
-        href="{% url 'student_report' student.id %}" role="button">
-        Term 2 Report
-        </a>
-        <!-- Mobile only button -->
-        <a href="{% url 'generate_report_pdf' student.id %}" target="_blank"
-            class="to-pdf-btn btn btn-outline-danger">📄 View Report PDF</a>
+        <a href="{% url 'student_report' student.id %}" class="btn btn-outline-success" role="button">Term 2 Report</a>
     </div>
 </div>
 {% endblock %}
