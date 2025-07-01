@@ -184,44 +184,40 @@
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.to-pdf-btn1{
-    display:none;
+.desk-btn {
+  display: inline-block;
 }
-.btn1{
-    display: block;
+
+.to-pdf-btn {
+  display: none;
 }
+
 @keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @media (max-width: 768px) {
+   .mtn-1 {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
 
-    /* .signatures{
-   transform:scale(0.6)
-
-
-
-    }
-      */
-      
-      
-.btn1 a{
-    display: none;
-}
-.to-pdf-btn1{
-    display:block;
-}
-      
+  .to-pdf-btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    height: 50px;
+    align-items:center;
+  }
     .report-wrapper {
         padding: 0px;
     }
@@ -425,7 +421,6 @@
 
 }
 
-@media(max-width) {}
 
 
 
