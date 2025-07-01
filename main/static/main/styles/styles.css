@@ -166,8 +166,30 @@
 
 
 }
-
-
+.report-card {
+    max-width: 100%;
+    margin: 10px 10px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    background: white;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+.report-wrapper {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.to-pdf-btn1{
+    display:none;
+}
+.btn1{
+    display: block;
+}
 @keyframes float {
     0% {
         transform: translateY(0px);
@@ -191,8 +213,25 @@
 
     }
       */
-
-
+      
+      
+.btn1 a{
+    display: none;
+}
+.to-pdf-btn1{
+    display:block;
+}
+      
+    .report-wrapper {
+        padding: 0px;
+    }
+     .report-wrapper{
+        padding:0px;
+    } 
+    .report-card{
+        padding:0px;
+        margin:0px;
+    }
     .report-table tr {
         font-size: 40%;
 
@@ -389,15 +428,7 @@
 
 
 
-.report-card {
-    max-width: 100%;
-    margin: 10px 10px;
-    padding: 30px;
-    border: 1px solid #ccc;
-    background: white;
-    text-align: center;
-    font-family: 'Nunito', sans-serif;
-}
+
 
 .report-card .report-title {
     font-size: 1.5rem;
@@ -501,15 +532,7 @@
     font-style: italic;
 }
 
-.report-wrapper {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
 
 /* Optional: adjust font sizes slightly to fit better */
 .report-wrapper h1,

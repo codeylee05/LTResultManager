@@ -26,7 +26,11 @@
         <button class="btn btn-outline-primary" disabled>Previous Results</button>
         <button class="btn btn-outline-primary" disabled>Previous Reports</button>
         <button class="btn btn-outline-success" disabled>Term 2 Results</button>
-        <a href="{% url 'student_report' student.id %}" class="btn btn-outline-success" role="button">Term 2 Report</a>
+        <a href="{% url 'student_report' student.id %}" class="btn1 btn-outline-success" role="button">Term 2 Report</a>
+        <a href="{% url 'generate_report_pdf' student.id %}" target="_blank"
+                class=" to-pdf-btn1 btn btn-outline-danger">
+                📄 View Report PDF
+            </a>
     </div>
 </div>
 {% endblock %}
