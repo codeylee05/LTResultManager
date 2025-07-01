@@ -216,7 +216,7 @@
     display: inline-block !important;
     visibility: visible !important;
     height: 50px;
-    align-items:center;
+    align-items: center;
   }
     .report-wrapper {
         padding: 0px;
@@ -257,7 +257,6 @@
         text-align: center;
         justify-content: center;
     }
-
 
     .text-end {
         text-align: center;
@@ -559,6 +558,6 @@
     text-align: center;
 }
 
-tbody a {
+.all-students-table a {
     width: 100px;
 }
