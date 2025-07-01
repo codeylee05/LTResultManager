@@ -22,7 +22,7 @@
                   {% elif request.user.parent %}{% url 'parent_home' %}
                   {% else %}/
                   {% endif %}">
-                LT Result Portal
+                LT ResultManager
             </a>
 
             {% comment %} <div class="navbar-links"> {% endcomment %}
@@ -45,7 +45,8 @@
                     <button type="submit" class="btn btn-outline-danger">Logout</button>
                 </form>
                 {% endif %}
-            {% comment %} </div> {% endcomment %}
+                {% comment %}
+            </div> {% endcomment %}
         </div>
     </nav>
 
