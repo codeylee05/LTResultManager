@@ -166,33 +166,68 @@
 
 
 }
+.report-card {
+    max-width: 100%;
+    margin: 10px 10px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    background: white;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+.report-wrapper {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.desk-btn {
+  display: inline-block;
+}
 
+.to-pdf-btn {
+  display: none;
+}
 
 @keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @media (max-width: 768px) {
+   .mtn-1 {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
 
-    /* .signatures{
-   transform:scale(0.6)
-
-
-
+  .to-pdf-btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    height: 50px;
+    align-items:center;
+  }
+    .report-wrapper {
+        padding: 0px;
     }
-      */
-
-
+     .report-wrapper{
+        padding:0px;
+    } 
+    .report-card{
+        padding:0px;
+        margin:0px;
+    }
     .report-table tr {
         font-size: 40%;
 
@@ -386,19 +421,10 @@
 
 }
 
-@media(max-width) {}
 
 
 
-.report-card {
-    max-width: 100%;
-    margin: 10px 10px;
-    padding: 30px;
-    border: 1px solid #ccc;
-    background: white;
-    text-align: center;
-    font-family: 'Nunito', sans-serif;
-}
+
 
 .report-card .report-title {
     font-size: 1.5rem;
@@ -502,15 +528,7 @@
     font-style: italic;
 }
 
-.report-wrapper {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
 
 /* Optional: adjust font sizes slightly to fit better */
 .report-wrapper h1,
