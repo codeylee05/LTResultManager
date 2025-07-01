@@ -27,7 +27,18 @@
         <button class="btn btn-outline-primary" disabled>Previous Results</button>
         <button class="btn btn-outline-primary" disabled>Previous Reports</button>
         <button class="btn btn-outline-success" disabled>Term 2 Results</button>
-        <a href="{% url 'student_report' student.id %}" class="btn btn-outline-success" role="button">Term 2 Report</a>
+            <!-- Desktop only: Term 2 Report -->
+    <a href="{% url 'student_report' student.id %}"
+       class="btn btn-outline-success d-none d-md-inline-block" role="button">
+       Term 2 Report
+    </a>
+
+    <!-- Mobile only: View PDF -->
+    <a href="{% url 'generate_report_pdf' student.id %}" target="_blank"
+       class="btn btn-outline-danger d-inline-block d-md-none"
+       style="height: 50px; display: inline-flex; align-items: center; justify-content: center; padding: 0 16px; line-height: 50px;">
+       📄 View Report PDF
+    </a>
     </div>
 </div>
 {% endblock %}
