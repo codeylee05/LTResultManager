@@ -148,6 +148,10 @@
                     </div>
                 </div>
             </div>
+            <a href="{% url 'generate_report_pdf' student.id %}" target="_blank"
+                class=" to-pdf-btn btn btn-outline-danger">
+                📄 View Report PDF
+            </a>
         </div>
 
         {% else %}
