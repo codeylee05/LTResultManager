@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h2>Hi, {{ user.first_name }}</h2>
+    <h2>Hi, {{ user.username }}</h2>
     <p>To view your children's results/reports, please select a child below:</p>
 
     {% if children %}
@@ -11,7 +11,7 @@
     <ul class="list-group">
         {% for child in children %}
         <li class="list-group-item d-flex justify-content-between align-items-center">
-            {{ child.first_name }} {{ child.surname }} ({{ child.grade }})
+            {{ child.first_name }} {{ child.surname }} (Grade {{ child.grade }})
             <a href="{% url 'student' child.id %}" class="btn btn-primary btn-sm">View Student Page</a>
         </li>
         {% endfor %}
