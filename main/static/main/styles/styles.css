@@ -1,4 +1,5 @@
-Styles
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
 .landing-body {
     margin: 0;
     font-family: 'Nunito', sans-serif;
@@ -539,4 +540,30 @@ Styles
 
 .to-pdf-btn {
     text-align: center;
+}
+
+.profile_pic_report_page {
+    transform: translateX(-50px);
+}
+
+
+.alert-animate {
+    animation: pulse-scale 1s ease-in-out infinite;
+    will-change: transform;
+    transform-origin: center;
+}
+
+
+@keyframes pulse-scale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

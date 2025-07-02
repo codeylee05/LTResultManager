@@ -11,7 +11,7 @@
     <ul class="list-group">
         {% for child in children %}
         <li class="list-group-item d-flex justify-content-between align-items-center">
-            {{ child.first_name }} {{ child.surname }} (Grade {{ child.grade }})
+            {{ child.first_name }} {{ child.surname }} ({{ child.grade }})
             <a href="{% url 'student' child.id %}" class="btn btn-primary btn-sm">View Student Page</a>
         </li>
         {% endfor %}

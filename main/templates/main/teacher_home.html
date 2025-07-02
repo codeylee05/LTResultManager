@@ -5,53 +5,52 @@
 {% block content %}
 
 <div style="margin-top: 80px; text-align: center;">
-    <h2>Welcome, {{ request.user.username }}</h2>
-    <p>Select your class students below or view all students above</p>
+  <h2>Welcome, {{ request.user.username }}</h2>
+  <p>Select your class students below or view all students above</p>
 
-    {% if students %}
+  {% if students %}
   <div class="table-container">
-  <div class="table-responsive" >
-    <table class="table student-table">
-      <thead class="bg-dark text-white">
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Surname</th>
-          <th>DOB</th>
-          <th>View</th>
-        </tr>
-      </thead>
-      
-      <tbody>
-        {% for student in students %}
-          <tr class="d-none d-md-table-row">
-                  <td>{{ forloop.counter }}</td>
-                  <td>{{ student.first_name }}</td>
-                  <td>{{ student.surname }}</td>
-                  <td>{{ student.dob }}</td>
-                  <td><a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View</a></td> 
+    <div class="table-responsive">
+      <table class="table student-table">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>DOB</th>
+            <th>View</th>
           </tr>
-       {% endfor %}
-      </tbody>
-    </table>
-    <div class="d-md-none">
-       {% for student in students %}
-           <div class="student-card mb-3 p-3">
-                 <h5 class="student-name">{{ student.first_name }} {{ student.surname }}</h5>
-                 <div><strong>DOB:</strong> {{ student.dob }}</div>
-                 <div><strong>Student #:</strong> {{ forloop.counter }}</div>
-                 
-                             <a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View More</a>
-                 
-                </div>
-     {% endfor %}
-    </div>
+        </thead>
+
+        <tbody>
+          {% for student in students %}
+          <tr class="d-none d-md-table-row">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ student.first_name }}</td>
+            <td>{{ student.surname }}</td>
+            <td>{{ student.dob }}</td>
+            <td><a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="d-md-none">
+        {% for student in students %}
+        <div class="student-card mb-3 p-3">
+          <h5 class="student-name">{{ student.first_name }} {{ student.surname }}</h5>
+          <div><strong>DOB:</strong> {{ student.dob }}</div>
+
+          <a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View More</a>
+
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 
-    {% else %}
-    <p>You don’t have any students assigned to your class.</p>
-    {% endif %}
+  {% else %}
+  <p>You don’t have any students assigned to your class.</p>
+  {% endif %}
 </div>
 
 {% endblock %}

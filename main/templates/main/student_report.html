@@ -11,10 +11,8 @@
         <img src="{{ student.profile_pic.url }}" alt="Profile Picture"
             style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; ">
         {% else %}
-        <div class="profile-photo"
-            style="width: 150px; height: 150px; background: #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-            <span>No Photo</span>
-        </div>
+        <img class="profile_pic_report_page" src="{% static 'main/images/default_profile_image.jpg' %}"
+            alt="Profile Picture" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; ">
         {% endif %}
 
         <div class="student-report-information">
@@ -35,7 +33,7 @@
     <div class="report-container">
         {% if term_report %}
         <div style="width: 100%;">
-            <div class="report-wrapper" style:"width: 100%;">
+            <div class="report-wrapper" style="width: 100%;">
                 <div class="report-card">
                     <div class="report-logo mb-3 text-center">
                         <img src="{% static 'main/images/ship_report_header.jpg' %}" alt="School Logo" class="img-fluid"

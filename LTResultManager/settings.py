@@ -10,9 +10,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-@on6jimn!!dn+k0b*@zd7*!*sg&@44oefojaf6fr1lesecv3q6'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['ltresultmanager.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['ltresultmanager.onrender.com',
+                 '127.0.0.1', 'localhost']
 
 
 INSTALLED_APPS = [

@@ -6,7 +6,7 @@
 <div style="margin-top: 80px; text-align: center;">
 
   {% for grade, students in grades.items %}
-  <h3 class="text-center mt-5">Grade {{ grade }}</h3>
+  <h3 class="text-center mt-5">{{ grade }}</h3>
   <div class="table-container">
     <div class="table-responsive">
       <table class="table student-table">
@@ -37,7 +37,6 @@
         <div class="student-card mb-3 p-3">
           <h5 class="student-name">{{ student.first_name }} {{ student.surname }}</h5>
           <div><strong>DOB:</strong> {{ student.dob }}</div>
-          <div><strong>Student #:</strong> {{ forloop.counter }}</div>
 
           <a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View More</a>
 
