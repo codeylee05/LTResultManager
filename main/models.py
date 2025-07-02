@@ -24,7 +24,7 @@ GRADE_SCALE = [
 class Subject(models.Model):
     name = models.CharField(max_length=50)
     teacher = models.ForeignKey(
-        "Teacher", on_delete=models.SET_NULL, null=True, related_name='teacher_subjects')
+        "Teacher", on_delete=models.SET_NULL, blank=True, null=True, related_name='teacher_subjects')
 
     def __str__(self):
         return f"{self.name}"
