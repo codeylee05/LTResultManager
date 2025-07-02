@@ -3,7 +3,11 @@
 
 {% block content %}
 <div class="container mt-5">
+    {% if user.first_name %}
     <h2>Hi, {{ user.first_name }}</h2>
+    {% else %}
+    <h2>Hi, Parent</h2>
+    {% endif %}
     <p>To view your children's results/reports, please select a child below:</p>
 
     {% if children %}
