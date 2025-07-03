@@ -72,7 +72,7 @@ class TermReport(models.Model):
     student = models.ForeignKey(
         Student, on_delete=models.CASCADE, related_name='term_reports')
     term = models.CharField(max_length=20, default="Term 2")
-    days_absent = models.PositiveIntegerField(default=0)
+    days_absent = models.PositiveIntegerField(default=0, blank=True, null=True)
 
     total_marks_obtained = models.PositiveIntegerField(blank=True, null=True)
     final_percentage = models.DecimalField(
