@@ -126,10 +126,10 @@
                         <p><strong>Comment:</strong> {{ term_report.comment }}</p>
                     </div>
 
-                    <!-- Signatures -->
-                    <div class="signatures d-flex flex-wrap justify-content-between">
+                    <!-- Signatures Dynamically -->
+                    <!--<div class="signatures d-flex flex-wrap justify-content-between">
 
-                        <!-- Class Teacher Signature -->
+                        Class Teacher Signature 
                         <div class="signature-box text-center mb-3 flex-fill">
                             <p class="title">Class Teacher</p>
                             {% if student.class_teacher.signature %}
@@ -141,7 +141,7 @@
                             <p class="name">{{ student.class_teacher.name }}</p>
                         </div>
 
-                        <!-- Head of School (Static) -->
+                        Head of School (Static) 
                         <div class="signature-box text-center mb-3 flex-fill">
                             <p class="title">Head of School</p>
                             <img src="{% static 'main/images/head_signature.png' %}" alt="Head of School Signature"
@@ -149,7 +149,7 @@
                             <p class="name">Mr Michael</p>
                         </div>
 
-                        <!-- Academic Head (Static) -->
+                        Academic Head (Static) 
                         <div class="signature-box text-center mb-3 flex-fill">
                             <p class="title">Academic Head</p>
                             <img src="{% static 'main/images/academic_signature.png' %}" alt="Academic Head Signature"
@@ -157,6 +157,23 @@
                             <p class="name">Ms Sharon</p>
                         </div>
 
+                    </div>-->
+                    <div class="signatures d-flex flex-wrap justify-content-between">
+                        <div class="signature-box text-center mb-3 flex-fill">
+                            <p class="title">Class Teacher</p>
+                            <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
+                            <p class="name">{{ student.class_teacher.name }}</p>
+                        </div>
+                        <div class="signature-box text-center mb-3 flex-fill">
+                            <p class="title">Head of School</p>
+                            <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
+                            <p class="name">Mr Michael</p>
+                        </div>
+                        <div class="signature-box text-center mb-3 flex-fill">
+                            <p class="title">Academic Head</p>
+                            <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
+                            <p class="name">Ms Sharon</p>
+                        </div>
                     </div>
 
                 </div>
