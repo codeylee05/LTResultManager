@@ -469,7 +469,7 @@
     background-color: #f3f3f3;
     border: 1px solid #ccc;
     font-style: italic;
-    max-width: 600px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     word-wrap: break-word;
@@ -507,6 +507,17 @@
     font-weight: normal;
     font-style: italic;
 }
+
+.head-of-school-sig,
+.sig-rotate-1 {
+    transform: rotate(90deg);
+}
+
+.academic-head-sig,
+.sig-rotate-2 {
+    transform: rotate(270deg);
+}
+
 
 .report-wrapper {
     max-width: 100%;

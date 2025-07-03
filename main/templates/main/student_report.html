@@ -47,7 +47,7 @@
                     <div class="student-info">
                         <p><strong>Student Name:</strong> {{ student.first_name }} {{ student.surname }}</p>
                         <p><strong>Class:</strong> {{ student.grade }}</p>
-                        <!--<p><strong>Days Absent:</strong>Days absent dynamically rendered here</p>-->
+                        <!--<p><strong>Days Absent:</strong> {{ term_report.days_absent }}</p>-->
                         <p><strong>School Reopens:</strong> 22/07/2025</p>
                     </div>
 
@@ -126,9 +126,51 @@
                         <p><strong>Comment:</strong> {{ term_report.comment }}</p>
                     </div>
 
-                    <!-- Signatures Dynamically (removed due to Prod issues) -->
-
+                    <!-- Signatures Dynamically -->
                     <div class="signatures d-flex flex-wrap justify-content-between">
+
+                        <div class="signature-box text-center mb-3 flex-fill">
+                            <p class="title">Class Teacher</p>
+                            {% if student.class_teacher.user.first_name == "Lefa" %}
+                            <img class="class-teacher-sig" src="{% static 'main/images/lefa_sig.jpg' %}"
+                                alt="Class Teacher Signature" style="height: 100px;">
+                            {% elif student.class_teacher.user.first_name == "Kelli" %}
+                            <img class="class-teacher-sig" src="{% static 'main/images/kelli_sig.jpg' %}"
+                                alt="Class Teacher Signature" style="height: 100px;">
+                            {% elif student.class_teacher.user.first_name == "Prince" %}
+                            <img class="class-teacher-sig" src="{% static 'main/images/prince_sig.jpg' %}"
+                                alt="Class Teacher Signature" style="height: 100px;">
+                            {% elif student.class_teacher.user.first_name == "Sharon" %}
+                            <img class="class-teacher-sig sig-rotate-2" src="{% static 'main/images/sharon_sig.jpg' %}"
+                                alt="Class Teacher Signature" style="height: 100px;">
+                            {% elif student.class_teacher.user.first_name == "Michael" %}
+                            <img class="class-teacher-sig sig-rotate-1" src="{% static 'main/images/michael_sig.jpg' %}"
+                                alt="Class Teacher Signature" style="height: 100px;">
+                            {% else %}
+                            <div>No signature</div>
+                            {% endif %}
+                            <p class="name">{{ student.class_teacher.name }}</p>
+
+                        </div>
+
+                        <!--Head of School (Static)-->
+                        <div class="signature-box text-center mb-3 flex-fill">
+                            <p class="title">Head of School</p>
+                            <img class="head-of-school-sig" src="{% static 'main/images/michael_sig.jpg' %}"
+                                alt="Head of School Signature" style="height: 100px;">
+                            <p class="name">Mr Michael</p>
+                        </div>
+
+                        <!--Academic Head (Static)-->
+                        <div class="signature-box text-center mb-3 flex-fill">
+                            <p class="title">Academic Head</p>
+                            <img class="academic-head-sig" src="{% static 'main/images/sharon_sig.jpg' %}"
+                                alt="Academic Head Signature" style="height: 100px;">
+                            <p class="name">Ms Sharon</p>
+                        </div>
+
+                    </div>
+                    <!--<div class="signatures d-flex flex-wrap justify-content-between">
                         <div class="signature-box text-center mb-3 flex-fill">
                             <p class="title">Class Teacher</p>
                             <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
@@ -144,7 +186,7 @@
                             <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
                             <p class="name">Ms Sharon</p>
                         </div>
-                    </div>
+                    </div>-->
 
                 </div>
             </div>

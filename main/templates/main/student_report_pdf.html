@@ -111,24 +111,52 @@
                 <p><strong>Comment:</strong> {{ term_report.comment }}</p>
             </div>
 
-            <div class="signatures">
-                <div class="signature-box">
+            <!-- Signatures Dynamically -->
+            <div class="signatures d-flex flex-wrap justify-content-between">
+
+                <div class="signature-box text-center mb-3 flex-fill">
                     <p class="title">Class Teacher</p>
-                    <div class="sig-box"></div>
+                    {% if student.class_teacher.user.first_name == "Lefa" %}
+                    <img class="class-teacher-sig" src="{{ lefa_sig_url }}" alt="Class Teacher Signature"
+                        style="height: 100px;">
+                    {% elif student.class_teacher.user.first_name == "Kelli" %}
+                    <img class="class-teacher-sig" src="{{ kelli_sig_url }}" alt="Class Teacher Signature"
+                        style="height: 100px;">
+                    {% elif student.class_teacher.user.first_name == "Prince" %}
+                    <img class="class-teacher-sig" src="{{ prince_sig_url }}" alt="Class Teacher Signature"
+                        style="height: 100px;">
+                    {% elif student.class_teacher.user.first_name == "Sharon" %}
+                    <img class="class-teacher-sig sig-rotate-2" src="{{ sharon_sig_url }}" alt="Class Teacher Signature"
+                        style="height: 100px;">
+                    {% elif student.class_teacher.user.first_name == "Michael" %}
+                    <img class="class-teacher-sig sig-rotate-1" src="{{ michael_sig_url }}"
+                        alt="Class Teacher Signature" style="height: 100px;">
+                    {% else %}
+                    <div>No signature</div>
+                    {% endif %}
                     <p class="name">{{ student.class_teacher.name }}</p>
+
                 </div>
-                <div class="signature-box">
+
+                <!--Head of School (Static)-->
+                <div class="signature-box text-center mb-3 flex-fill">
                     <p class="title">Head of School</p>
-                    <div class="sig-box"></div>
+                    <img class="head-of-school-sig" src="{{ michael_sig_url }}" alt="Head of School Signature"
+                        style="height: 100px;">
                     <p class="name">Mr Michael</p>
                 </div>
-                <div class="signature-box">
+
+                <!--Academic Head (Static)-->
+                <div class="signature-box text-center mb-3 flex-fill">
                     <p class="title">Academic Head</p>
-                    <div class="sig-box"></div>
+                    <img class="academic-head-sig" src="{{ sharon_sig_url }}" alt="Academic Head Signature"
+                        style="height: 100px;">
                     <p class="name">Ms Sharon</p>
                 </div>
+
             </div>
         </div>
+    </div>
     </div>
 </body>
 

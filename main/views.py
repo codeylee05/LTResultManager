@@ -139,10 +139,6 @@ def generate_report_pdf(request, student_id):
         if not student in user.parent.children.all():
             return HttpResponseForbidden("You are not allowed to view this report.")
 
-    elif hasattr(user, 'teacher'):
-        if student.class_teacher != user.teacher:
-            return HttpResponseForbidden("You are not allowed to view this report.")
-
     elif not user.is_staff and not user.is_superuser:
         return HttpResponseForbidden("You are not allowed to view this report.")
 
@@ -156,17 +152,70 @@ def generate_report_pdf(request, student_id):
         logo_absolute_path = os.path.abspath(
             logo_static_path).replace('\\', '/')
         logo_url = 'file:///' + logo_absolute_path.lstrip('/')
-        '''logger.info(f"Resolved WeasyPrint logo path: {logo_url}")'''
     else:
 
         logo_url = None
-        '''logger.warning("Logo not found for WeasyPrint.")'''
+
+    michael_sig_static_path = finders.find('main/images/michael_sig.jpg')
+    if michael_sig_static_path:
+
+        michael_sig_absolute_path = os.path.abspath(
+            michael_sig_static_path).replace('\\', '/')
+        michael_sig_url = 'file:///' + michael_sig_absolute_path.lstrip('/')
+    else:
+
+        michael_sig_url = None
+
+    sharon_sig_static_path = finders.find('main/images/sharon_sig.jpg')
+    if sharon_sig_static_path:
+
+        sharon_sig_absolute_path = os.path.abspath(
+            sharon_sig_static_path).replace('\\', '/')
+        sharon_sig_url = 'file:///' + sharon_sig_absolute_path.lstrip('/')
+    else:
+
+        sharon_sig_url = None
+
+    lefa_sig_static_path = finders.find('main/images/lefa_sig.jpg')
+    if lefa_sig_static_path:
+
+        lefa_sig_absolute_path = os.path.abspath(
+            lefa_sig_static_path).replace('\\', '/')
+        lefa_sig_url = 'file:///' + lefa_sig_absolute_path.lstrip('/')
+    else:
+
+        lefa_sig_url = None
+
+    prince_sig_static_path = finders.find('main/images/prince_sig.jpg')
+    if prince_sig_static_path:
+
+        prince_sig_absolute_path = os.path.abspath(
+            prince_sig_static_path).replace('\\', '/')
+        prince_sig_url = 'file:///' + prince_sig_absolute_path.lstrip('/')
+    else:
+
+        prince_sig_url = None
+
+    kelli_sig_static_path = finders.find('main/images/kelli_sig.jpg')
+    if kelli_sig_static_path:
+
+        kelli_sig_absolute_path = os.path.abspath(
+            kelli_sig_static_path).replace('\\', '/')
+        kelli_sig_url = 'file:///' + kelli_sig_absolute_path.lstrip('/')
+    else:
+
+        kelli_sig_url = None
 
     html_string = render_to_string("main/student_report_pdf.html", {
         "student": student,
         "term_report": term_report,
         "subject_grades": subject_grades,
         "logo_url": logo_url,
+        "michael_sig_url": michael_sig_url,
+        "sharon_sig_url": sharon_sig_url,
+        "lefa_sig_url": lefa_sig_url,
+        "prince_sig_url": prince_sig_url,
+        "kelli_sig_url": kelli_sig_url,
     })
 
     css_path = finders.find("main/styles/report_styles.css")
