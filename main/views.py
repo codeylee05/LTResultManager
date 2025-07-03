@@ -76,10 +76,14 @@ def student(request, student_id):
 
 
 def student_report(request, student_id):
-
     student = get_object_or_404(Student, pk=student_id)
 
-    term_report = student.term_reports.order_by('-created_at').first()
+    try:
+        # Try using the correct related_name if it exists
+        term_report = student.term_reports.order_by('-created_at').first()
+    except AttributeError:
+        # Fallback if related_name isn't defined
+        term_report = student.termreport_set.order_by('-created_at').first()
 
     subject_grades = term_report.subject_grades.all() if term_report else []
 
@@ -148,7 +152,8 @@ def generate_report_pdf(request, student_id):
     logo_static_path = finders.find('main/images/ship_report_header.jpg')
     if logo_static_path:
 
-        logo_absolute_path = os.path.abspath(logo_static_path).replace('\\', '/')
+        logo_absolute_path = os.path.abspath(
+            logo_static_path).replace('\\', '/')
         logo_url = 'file:///' + logo_absolute_path.lstrip('/')
         '''logger.info(f"Resolved WeasyPrint logo path: {logo_url}")'''
     else:
