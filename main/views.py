@@ -76,14 +76,10 @@ def student(request, student_id):
 
 
 def student_report(request, student_id):
+    
     student = get_object_or_404(Student, pk=student_id)
 
-    try:
-        # Try using the correct related_name if it exists
-        term_report = student.term_reports.order_by('-created_at').first()
-    except AttributeError:
-        # Fallback if related_name isn't defined
-        term_report = student.termreport_set.order_by('-created_at').first()
+    term_report = student.term_reports.order_by('-created_at').first()
 
     subject_grades = term_report.subject_grades.all() if term_report else []
 
