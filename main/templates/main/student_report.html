@@ -47,7 +47,7 @@
                     <div class="student-info">
                         <p><strong>Student Name:</strong> {{ student.first_name }} {{ student.surname }}</p>
                         <p><strong>Class:</strong> {{ student.grade }}</p>
-                        <p><strong>Days Absent:</strong> {{ term_report.days_absent }}</p>
+                        <!--<p><strong>Days Absent:</strong> {{ term_report.days_absent }}</p>-->
                         <p><strong>School Reopens:</strong> 22/07/2025</p>
                     </div>
 
@@ -128,36 +128,51 @@
 
                     <!-- Signatures -->
                     <div class="signatures d-flex flex-wrap justify-content-between">
+
+                        <!-- Class Teacher Signature -->
                         <div class="signature-box text-center mb-3 flex-fill">
                             <p class="title">Class Teacher</p>
+                            {% if student.class_teacher.signature %}
+                            <img src="{{ student.class_teacher.signature.url }}" alt="Class Teacher Signature"
+                                style="height: 40px;">
+                            {% else %}
                             <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
+                            {% endif %}
                             <p class="name">{{ student.class_teacher.name }}</p>
                         </div>
+
+                        <!-- Head of School (Static) -->
                         <div class="signature-box text-center mb-3 flex-fill">
                             <p class="title">Head of School</p>
-                            <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
+                            <img src="{% static 'main/images/head_signature.png' %}" alt="Head of School Signature"
+                                style="height: 40px;">
                             <p class="name">Mr Michael</p>
                         </div>
+
+                        <!-- Academic Head (Static) -->
                         <div class="signature-box text-center mb-3 flex-fill">
                             <p class="title">Academic Head</p>
-                            <div class="sig-box border-bottom my-2" style="height: 40px;"></div>
+                            <img src="{% static 'main/images/academic_signature.png' %}" alt="Academic Head Signature"
+                                style="height: 40px;">
                             <p class="name">Ms Sharon</p>
                         </div>
+
                     </div>
+
                 </div>
             </div>
-            <a href="{% url 'generate_report_pdf' student.id %}" target="_blank"
-                class=" to-pdf-btn btn btn-outline-danger">
-                📄 View Report PDF
-            </a>
         </div>
-
-        {% else %}
-        <div class="alert alert-warning" role="alert" style="   margin-top: 20px; text-align: center;">
-            No Term 2 Report available yet for this student.
-        </div>
-        {% endif %}
+        <a href="{% url 'generate_report_pdf' student.id %}" target="_blank" class=" to-pdf-btn btn btn-outline-danger">
+            📄 View Report PDF
+        </a>
     </div>
+
+    {% else %}
+    <div class="alert alert-warning" role="alert" style="   margin-top: 20px; text-align: center;">
+        No Term 2 Report available yet for this student.
+    </div>
+    {% endif %}
+</div>
 
 
 

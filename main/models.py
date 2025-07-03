@@ -37,6 +37,8 @@ class Teacher(models.Model):
     grade = models.CharField(max_length=10, choices=GRADE_CHOICES)
     subjects = models.ManyToManyField(
         "Subject", related_name='subject_teachers', blank=True)
+    signature = models.ImageField(
+        upload_to='signatures/', blank=True, null=True)
 
     def __str__(self):
         return f"{self.name} ({self.user.username})" if self.user else self.name
@@ -70,7 +72,7 @@ class TermReport(models.Model):
     student = models.ForeignKey(
         Student, on_delete=models.CASCADE, related_name='term_reports')
     term = models.CharField(max_length=20, default="Term 2")
-    days_absent = models.PositiveIntegerField(default=0)
+    days_absent = models.PositiveIntegerField(default=0, blank=True, null=True)
 
     total_marks_obtained = models.PositiveIntegerField(blank=True, null=True)
     final_percentage = models.DecimalField(
