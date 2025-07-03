@@ -1,8 +1,8 @@
-
 from pathlib import Path
 import os
 from decouple import config
 import dj_database_url
+import sys
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -134,3 +134,36 @@ CSRF_TRUSTED_ORIGINS = [
 if not DEBUG:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'formatters': {
+        'verbose': {
+            'format': '[{asctime}] {levelname} {name}: {message}',
+            'style': '{',
+        },
+    },
+
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout,
+            'formatter': 'verbose',
+        },
+    },
+
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        'main': {
+            'handlers': ['console'],
+            'level': 'DEBUG',  # You can change to ERROR later
+            'propagate': True,
+        },
+    },
+}

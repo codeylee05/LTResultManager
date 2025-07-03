@@ -14,6 +14,8 @@ from django.contrib.staticfiles import finders
 from django.conf import settings
 from django.http import HttpResponseForbidden, Http404
 '''import logger'''
+import logging
+logger = logging.getLogger('main')
 
 
 def index(request):
@@ -76,20 +78,23 @@ def student(request, student_id):
 
 
 def student_report(request, student_id):
-    
-    student = get_object_or_404(Student, pk=student_id)
+    try:
+        student = get_object_or_404(Student, pk=student_id)
+        term_report = student.term_reports.order_by('-created_at').first()
+        subject_grades = term_report.subject_grades.all() if term_report else []
 
-    term_report = student.term_reports.order_by('-created_at').first()
+        context = {
+            'student': student,
+            'term_report': term_report,
+            'subject_grades': subject_grades,
+        }
 
-    subject_grades = term_report.subject_grades.all() if term_report else []
+        return render(request, 'main/student_report.html', context)
 
-    context = {
-        'student': student,
-        'term_report': term_report,
-        'subject_grades': subject_grades,
-    }
-
-    return render(request, 'main/student_report.html', context)
+    except Exception as e:
+        logger.exception(
+            f"[PROD ERROR] Failed to load report for student ID {student_id}")
+        return HttpResponse("Something went wrong. Please contact the admin.", status=500)
 
 
 def parent_login(request):
