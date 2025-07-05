@@ -112,16 +112,11 @@
 .student-report-profile {
     display: flex;
     align-items: flex-start;
+    justify-content: space-between
 }
 
 .report-container {
     justify-content: center;
-
-}
-
-.profile-photo {
-    margin-right: 30px;
-
 
 }
 
@@ -133,10 +128,6 @@
     margin-left: 50px;
 }
 
-.table-container {
-    display: flex;
-    justify-content: center;
-}
 
 /* Simple floating animation */
 /* .navbar{
@@ -152,10 +143,6 @@
     justify-content: space-between;
 }
 
-.table-responsive {
-    max-width: 1000px;
-    width: 90%;
-}
 
 .report-logo-img {
     height: 250px;
@@ -209,77 +196,10 @@
         font-size: 1rem;
     }
 
-    .table-responsive {
-        max-width: 1000px;
-        width: 60%;
-    }
-
-    .student-card {
-
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        background-color: #f9f9f9;
-        margin-bottom: 1rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        text-align: center;
-        justify-content: center;
-    }
-
     .text-end {
         text-align: center;
     }
 
-    .student-name {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #333;
-    }
-
-    .student-card div {
-        margin-bottom: 0.25rem;
-        font-size: 0.95rem;
-    }
-
-
-    .table-responsive thead {
-        display: none
-    }
-
-    .table-responsive table,
-    .table-responsive tbody,
-    .table-responsive tr,
-    .table-responsive td {
-        display: block;
-        width: 100%;
-    }
-
-    .table-responsive tr {
-        margin-bottom: 1rem;
-        border: 1px solid #444;
-        border-radius: 6px;
-        background-color: #f9f9f9;
-        padding: 10px;
-    }
-
-    .table-responsive td {
-        display: flex;
-        justify-content: space-between;
-        padding: 8px 10px;
-        border: none;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .table-responsive td::before {
-        content: attr(data-label);
-        font-weight: bold;
-        flex-basis: 45%;
-        color: #333;
-        text-align: left;
-    }
-
-    .table-responsive td:last-child {
-        border-bottom: none;
-    }
 
     .landing-left,
     .landing-right {
@@ -318,10 +238,12 @@
     .student-report-profile {
         align-items: center;
         flex-direction: column;
+        justify-content: center;
     }
 
-    .profile-photo {
-        margin-right: 0px;
+    .student-report-profile .student-image {
+
+        transform: translateX(-10px);
     }
 
     .student-report-page {
@@ -339,8 +261,16 @@
         text-align: center;
     }
 
+    .student-report-information p {
+        font-size: 1.2rem;
+    }
+
     .btn-outline-primary {
         height: 50px;
+    }
+
+    .student-card .student-name {
+        font-size: 1.4rem;
     }
 
     .btn-outline-success {
@@ -582,4 +512,48 @@
     100% {
         transform: scale(1);
     }
+}
+
+.student-card-grid {
+    display: flex;
+    flex-direction: horizontal;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.student-card {
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    transition: transform 0.2s ease;
+}
+
+.student-card:hover {
+    transform: scale(1.05);
+}
+
+.student-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.student-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.student-report-profile img {
+    margin-right: 30px;
 }

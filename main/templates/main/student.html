@@ -6,11 +6,11 @@
 <div class="student-report-page" style="display: flex;  margin: 30px 40px;">
     <div class="student-report-profile">
         {% if student.profile_pic %}
-        <img src="{{ student.profile_pic.url }}" alt="Profile Picture"
+        <img class="student-image" src="{{ student.profile_pic.url }}" alt="Profile Picture"
             style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin-right: 30px;">
         {% else %}
-        <img src="{% static 'main/images/default_profile_image.jpg' %}" alt="Profile Picture"
-            style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; ">
+        <img src="{% if student.profile_image %}{{ student.profile_image.url }}{% else %}{% static 'main/images/default_profile_image_2.svg' %}{% endif %}"
+            class="student-image" alt="{{ student.first_name }} {{ student.surname }}">
         {% endif %}
 
         <div class="student-report-information">

@@ -7,49 +7,20 @@
 
   {% for grade, students in grades.items %}
   <h3 class="text-center mt-5">{{ grade }}</h3>
-  <div class="table-container">
-    <div class="table-responsive">
-      <table class="table student-table">
-        <thead class="bg-dark text-white">
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Surname</th>
-            <th>DOB</th>
-            <th>View</th>
-          </tr>
-        </thead>
 
-        <tbody>
-          {% for student in students %}
-          <tr class="d-none d-md-table-row">
-            <td>{{ forloop.counter }}</td>
-            <td>{{ student.first_name }}</td>
-            <td>{{ student.surname }}</td>
-            <td>{{ student.dob }}</td>
-            <td><a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View</a></td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      <div class="d-md-none">
-        {% for student in students %}
-        <div class="student-card mb-3 p-3">
-          <h5 class="student-name">{{ student.first_name }} {{ student.surname }}</h5>
-          <div><strong>DOB:</strong> {{ student.dob }}</div>
-
-          <a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View More</a>
-
-        </div>
-        {% endfor %}
-      </div>
+  <div class="student-card-grid mt-4">
+    {% for student in students %}
+    <div class="student-card">
+      <img
+        src="{% if student.profile_image %}{{ student.profile_image.url }}{% else %}{% static 'main/images/default_profile_image_2.svg' %}{% endif %}"
+        class="student-image" alt="{{ student.first_name }} {{ student.surname }}">
+      <div class="student-name mt-2">{{ student.first_name }} {{ student.surname }}</div>
+      <a href="{% url 'student' student.id %}" class="btn btn-md btn-primary mt-2">View</a>
     </div>
+    {% endfor %}
   </div>
 
   {% endfor %}
-
-</div>
-
 
 </div>
 {% endblock %}

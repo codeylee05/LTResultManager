@@ -11,8 +11,8 @@
         <img src="{{ student.profile_pic.url }}" alt="Profile Picture"
             style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; ">
         {% else %}
-        <img class="profile_pic_report_page" src="{% static 'main/images/default_profile_image.jpg' %}"
-            alt="Profile Picture" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; ">
+        <img src="{% if student.profile_image %}{{ student.profile_image.url }}{% else %}{% static 'main/images/default_profile_image_2.svg' %}{% endif %}"
+            class="student-image" alt="{{ student.first_name }} {{ student.surname }}">
         {% endif %}
 
         <div class="student-report-information">
