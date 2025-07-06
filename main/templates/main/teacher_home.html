@@ -22,17 +22,6 @@
     </div>
     {% endfor %}
   </div>
-  <div class="d-md-none">
-    {% for student in students %}
-    <div class="student-card mb-3 p-3">
-      <h5 class="student-name">{{ student.first_name }} {{ student.surname }}</h5>
-      <div><strong>DOB:</strong> {{ student.dob }}</div>
-
-      <a href="{% url 'student' student.id %}" class="btn btn-sm btn-primary">View More</a>
-
-    </div>
-    {% endfor %}
-  </div>
   {% else %}
   <p>You don’t have any students assigned to your class.</p>
   {% endif %}
