@@ -64,7 +64,7 @@
             <!-- Replace the summary block with dynamic values -->
             <div class="summary">
                 <p><strong>Total Marks Obtained:</strong> {{ term_report.total_marks_obtained }}</p>
-                <p><strong>Final Percentage:</strong> {{ term_report.final_percentage }}%</p>
+                <p><strong>Final Percentage:</strong> {{ term_report.final_percentage|floatformat:0 }}%</p>
                 <p><strong>Overall Grade:</strong> {{ term_report.overall_grade }}</p>
             </div>
 

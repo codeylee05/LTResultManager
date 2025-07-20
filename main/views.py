@@ -1,9 +1,10 @@
+from django.db.models import Max, F, Sum
 from urllib import response
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Teacher, Student, Parent, TermReport
+from .models import Teacher, Student, Parent, TermReport, ReportSubjectGrade
 from django.shortcuts import render, get_object_or_404
 from django.template.loader import get_template, render_to_string
 from weasyprint import HTML, CSS
@@ -226,3 +227,39 @@ def generate_report_pdf(request, student_id):
     response = HttpResponse(pdf_file, content_type="application/pdf")
     response["Content-Disposition"] = 'inline; filename="term_report.pdf"'
     return response
+
+
+@login_required
+def leaderboard_view(request):
+    subjects = ["English", "Math", "Afrikaans"]
+    top_scores_by_grade = {}
+
+    # Get all grades with at least one student
+    grades = Student.objects.values_list('grade', flat=True).distinct()
+
+    for grade in grades:
+        grade_students = Student.objects.filter(grade=grade)
+        grade_subject_top = []
+
+        for subject_name in subjects:
+            # Get highest mark for this subject in this grade
+            top_mark = ReportSubjectGrade.objects.filter(
+                subject__name=subject_name,
+                report__student__in=grade_students
+            ).aggregate(Max("marks_obtained"))['marks_obtained__max']
+
+            if top_mark is not None:
+                top_performers = ReportSubjectGrade.objects.filter(
+                    subject__name=subject_name,
+                    report__student__in=grade_students,
+                    marks_obtained=top_mark
+                )
+                grade_subject_top.append({
+                    "subject": subject_name,
+                    "top_mark": top_mark,
+                    "students": [f"{g.report.student.first_name} {g.report.student.surname}" for g in top_performers]
+                })
+
+        top_scores_by_grade[grade] = grade_subject_top
+
+    return render(request, "main/leaderboard.html", {"top_scores_by_grade": top_scores_by_grade})

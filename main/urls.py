@@ -19,6 +19,6 @@ urlpatterns = [
     path("parents/home/", views.parent_home, name="parent_home"),
     path('students/<int:student_id>/download-report/',
          views.generate_report_pdf, name='generate_report_pdf'),
-
+    path("leaderboards/", views.leaderboard_view, name="leaderboard"),
 
 ]

@@ -557,3 +557,9 @@
 .student-report-profile img {
     margin-right: 30px;
 }
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

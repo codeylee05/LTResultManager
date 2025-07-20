@@ -1,0 +1,52 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block title %}Leaderboards{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Top 3 Scorers Per Subject</h2>
+
+    {% for grade, subjects in leaderboard.items %}
+    <div class="card mb-5 shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">{{ grade }}</h4>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-bordered mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Top Scorer(s)</th>
+                        <th>Mark (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for subject_name, top_entries in subjects.items %}
+                    <tr>
+                        <td><strong>{{ subject_name }}</strong></td>
+                        <td>
+                            {% for entry in top_entries %}
+                            {{ entry.student.first_name }} {{ entry.student.surname }}{% if not forloop.last %}, {%
+                            endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% if top_entries %}
+                            {{ top_entries.0.mark }}%
+                            {% else %}
+                            N/A
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% empty %}
+    <p class="text-muted text-center">No leaderboard data available.</p>
+    {% endfor %}
+</div>
+{% endblock %}
