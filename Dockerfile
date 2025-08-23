@@ -30,4 +30,5 @@ RUN mkdir -p /app/media
 EXPOSE 8000
 
 # Run migrations + gunicorn
-CMD ["sh", "-c", "python manage.py migrate --noinput && gunicorn LTResultManager.wsgi"]
+CMD ["sh", "-c", "python manage.py migrate --noinput && gunicorn LTResultManager.wsgi:application --bind 0.0.0.0:$PORT"]
+
