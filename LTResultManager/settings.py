@@ -8,9 +8,8 @@ import sys
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-@on6jimn!!dn+k0b*@zd7*!*sg&@44oefojaf6fr1lesecv3q6'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['ltresultmanager.onrender.com',
                  '127.0.0.1', 'localhost']
@@ -80,15 +79,7 @@ else:
         }
     }
 
-
-'''DATABASES = {
-    'default': dj_database_url.config(
-        # Postgres URL from Render
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=600,
-        ssl_require=True
-    )
-}'''
+DATABASES['default']['CONN_MAX_AGE'] = 60
 
 
 AUTH_PASSWORD_VALIDATORS = [
